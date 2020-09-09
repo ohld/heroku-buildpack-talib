@@ -22,4 +22,4 @@ cd ta-lib/
 ./configure --includedir=/app/.heroku/python/include/${PYTHON} --libdir=/app/.heroku/python/lib --bindir=/app/.heroku/python/bin
 make
 make install
-/app/.heroku/python/bin/pip install -r requirements_after_talib.txt
+/app/.heroku/python/bin/pip install TA-Lib
