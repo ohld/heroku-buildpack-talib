@@ -16,7 +16,7 @@ mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
 mkdir -p talib
 cd talib
-curl -L --silent $DOWNLOAD_URL | tar -xzf
+curl -L --silent $DOWNLOAD_URL | tar -xz
 cd ta-lib/
 ./configure --prefix=/usr
 make
