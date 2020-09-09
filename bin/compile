@@ -1,0 +1,23 @@
+#!/bin/sh
+
+indent() {
+  sed -u 's/^/       /'
+}
+
+echo "-----> Install ta-lib"
+BUILD_DIR=$1
+VENDOR_DIR="vendor"
+DOWNLOAD_URL="http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz"
+
+echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
+
+cd $BUILD_DIR
+mkdir -p $VENDOR_DIR
+cd $VENDOR_DIR
+mkdir -p talib
+cd talib
+curl -L --silent $DOWNLOAD_URL | tar -xzf
+cd ta-lib/
+./configure --prefix=/usr
+make
+sudo make install
