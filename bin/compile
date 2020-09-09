@@ -20,4 +20,4 @@ curl -L --silent $DOWNLOAD_URL | tar -xz
 cd ta-lib/
 ./configure --prefix=/usr
 make
-sudo make install
+make install
