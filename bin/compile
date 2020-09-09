@@ -8,6 +8,7 @@ echo "-----> Install ta-lib"
 BUILD_DIR=$1
 VENDOR_DIR="vendor"
 DOWNLOAD_URL="http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.gz"
+PYTHON=$(ls /app/.heroku/python/include | grep -m 1 python)
 
 echo "DOWNLOAD_URL = " $DOWNLOAD_URL | indent
 
@@ -15,10 +16,9 @@ cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
 mkdir -p talib
-mkdir -p /usr/include/ta-lib/
 cd talib
 curl -L --silent $DOWNLOAD_URL | tar -xz
 cd ta-lib/
-./configure --prefix=/usr
+./configure --includedir=/app/.heroku/python/include/${PYTHON} --libdir=/app/.heroku/python/lib --bindir=/app/.heroku/python/bin
 make
 make install
