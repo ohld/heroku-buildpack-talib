@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "ta-lib"
+exit 0
