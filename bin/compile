@@ -15,6 +15,7 @@ cd $BUILD_DIR
 mkdir -p $VENDOR_DIR
 cd $VENDOR_DIR
 mkdir -p talib
+mkdir -p /usr/include/ta-lib/
 cd talib
 curl -L --silent $DOWNLOAD_URL | tar -xz
 cd ta-lib/
